@@ -297,18 +297,44 @@ export default function useAuth() {
   }
 
 
-  return { 
-    authentication, 
-    login, 
-    register, 
-    logout, 
-    updateUser, 
-    publish, 
+  async function likeInPublication(id, token) {
+    // Mensagens
+    let msg = ''
+    let type = 'success'
+
+    await axios.patch(`http://localhost:5050/publications/like-publication/${id}`, null, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(token)}`
+      }
+    }).then((res) => {
+      return res.data
+    }).catch((err) => {
+      msg = err.response.data.message
+      type = 'error'
+    })
+
+    // setFlashMessage(msg, type)
+
+    if (type !== 'error') {
+      window.location.reload()
+    }
+  }
+
+
+  return {
+    authentication,
+    login,
+    register,
+    logout,
+    updateUser,
+    publish,
     followUser,
     unFollowUser,
-    comment, 
-    denouncePubli, 
+    comment,
+    denouncePubli,
     removeNotifications,
-    deletePublication }
+    deletePublication,
+    likeInPublication
+  }
 
 }

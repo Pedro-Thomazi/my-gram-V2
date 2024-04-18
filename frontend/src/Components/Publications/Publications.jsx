@@ -18,10 +18,11 @@ const Publications = ({ idPubli, index, userId, userName, userPhoto, localizatio
   const [isMyPubli, setIsMyPubli] = useState(false)
   const [openMenu, setOpenMenu] = useState(false)
   const [openComments, setOpenComments] = useState(false)
+  const [myLikeInPubli, setMyLikeInPubli] = useState([])
   const [token] = useState(localStorage.getItem('token') || '')
   const [imageIndex, setImageIndex] = useState(0)
   const [textComment, setTextComment] = useState('')
-  const { comment } = useContext(Context)
+  const { comment, likeInPublication } = useContext(Context)
 
   useEffect(() => {
     // Pega os dados do user pelo token e coloca em uma variável
@@ -39,11 +40,15 @@ const Publications = ({ idPubli, index, userId, userName, userPhoto, localizatio
       }
     }).then((res) => {
       setPublication(res.data)
+    }).then(() => {
+      setMyLikeInPubli(publication.publication.likes)
     })
   }, [token])
 
-  function changeHeart() {
-    setLiked(!liked)
+  console.log(publication.publication)
+
+  function addLike() {
+    likeInPublication(idPubli, token)
   }
 
   function nextImage() {
@@ -138,7 +143,7 @@ const Publications = ({ idPubli, index, userId, userName, userPhoto, localizatio
         ))}
       </div>
       <div className={styles.likeComment}>
-        <button onClick={changeHeart}>
+        <button onClick={addLike}>
           {liked ? (
             <FaHeart size={25} color='red' />
           ) : (

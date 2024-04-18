@@ -5,11 +5,11 @@ import useScrollToTop from "../Hooks/useScrollToTop";
 const Context = createContext()
 
 function UserProvider({ children }) {
-  const { authentication, login, register, logout, updateUser, publish, followUser, unFollowUser, comment, denouncePubli, removeNotifications, deletePublication } = useAuth()
+  const { authentication, login, register, logout, updateUser, publish, followUser, unFollowUser, comment, denouncePubli, removeNotifications, deletePublication, likeInPublication } = useAuth()
   const { goTop } = useScrollToTop()
 
   return (
-    <Context.Provider value={{ authentication, login, register, logout, updateUser, goTop, publish, followUser, unFollowUser, comment, denouncePubli, removeNotifications, deletePublication }}>
+    <Context.Provider value={{ authentication, login, register, logout, updateUser, goTop, publish, followUser, unFollowUser, comment, denouncePubli, removeNotifications, deletePublication, likeInPublication }}>
       {children}
     </Context.Provider>
   )
