@@ -197,4 +197,30 @@ module.exports = class PublicationsController {
       return res.status(400).json({ message: 'Publicação não encontrada' })
     }
   }
+
+  static async likeInPublication(req, res) {
+    const id = req.params.id
+
+    const token = getToken(req)
+    const user = await getUserByToken(token)
+
+    const publication = await Publications.find({_id: id, "likes._id": user._id.toString() })
+    console.log(publication)
+    
+    const dataLike = {
+      _id: user.id
+    }
+    
+    if (publication != "") {
+      await Publications.updateOne({ _id: id }, { $pullAll: { likes: [dataLike] } })
+      return res.status(200).json({ message: 'Descurtiu '})
+    }
+
+    try {
+      const newPublication = await Publications.updateOne({ _id: id }, { $push: { likes: dataLike } })
+      return res.status(200).json({ message: `Curtido por ${user.name}`, newPublication })
+    } catch (error) {
+      return res.status(400).json({ message: 'Erro ao curtir a publicação' })
+    }
+  }
 }

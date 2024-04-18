@@ -10,6 +10,7 @@ router.get('/user-publications/:id', PublicationsController.getPublicationsById)
 router.patch('/comments/:id', PublicationsController.addComment)
 router.delete('/remove-publication/:id', PublicationsController.removePublication)
 router.patch('/denounce-publication/:id', PublicationsController.getPublicationByIdAndAddDenounce)
+router.patch('/like-publication/:id', PublicationsController.likeInPublication)
 router.get('/', PublicationsController.getAllPublis)
 
 module.exports = router
