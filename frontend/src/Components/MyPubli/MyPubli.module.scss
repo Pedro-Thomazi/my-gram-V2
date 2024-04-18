@@ -75,14 +75,14 @@
       margin-top: 10px;
       gap: 5px;
 
-      button, a {
+      .redBtn, a {
         font-size: 1.2rem;
         width: 200px;
         padding: 10px;
         text-align: center;
       }
 
-      button {
+      .redBtn {
         background-color: #c51a1a;
         color: #fff;
         border: 1px solid #c51a1a;

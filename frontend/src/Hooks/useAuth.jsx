@@ -292,8 +292,7 @@ export default function useAuth() {
     setFlashMessage(msg, type)
 
     if (type !== 'error') {
-      navigate('/').then(() => window.location.reload())
-      
+      window.location.reload()
     }
   }
 

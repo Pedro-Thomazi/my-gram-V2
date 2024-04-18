@@ -104,7 +104,7 @@ const Dashboard = () => {
         <NavbarMedia inDashboard={true} />
 
         {/* Publicações do Usuário */}
-        <UserPublications configs={myPublications} images={myPublications.images} />
+        <UserPublications myPubli={true} configs={myPublications} images={myPublications.images} />
       </section>
     )
   )

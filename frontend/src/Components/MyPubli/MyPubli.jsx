@@ -8,6 +8,8 @@ import { Context } from '../../Context/UserContext'
 
 const MyPubli = () => {
   const { id } = useParams()
+  const [me, setMe] = useState({})
+  const [meLoaded, setMeLoaded] = useState(false)
   const [publication, setPublication] = useState([])
   const [user, setUser] = useState({})
   const [comments, setComments] = useState([])
@@ -19,6 +21,14 @@ const MyPubli = () => {
   const { deletePublication, comment } = useContext(Context)
 
   useEffect(() => {
+    axios.get('http://localhost:5050/user/getuser', {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(token)}`
+      }
+    }).then((res) => {
+      setMe(res.data)
+    })
+
     // Pega apenas as publicações do usuário pelo seu token
     axios.get(`http://localhost:5050/publications/publication/${id}`).then((res) => {
       setPublication(res.data.publication)
@@ -35,10 +45,17 @@ const MyPubli = () => {
         setLikes(res.data.publication.likes.length)
       }
     })
-
   }, [id])
 
-  console.log(images)
+  useEffect(() => {
+    // Teste para ver se a publicação é minha, apenas se meLoaded for verdadeiro
+    if (meLoaded && user._id && me._id && user._id.toString() === me._id.toString()) {
+      setMeLoaded(true)
+    }
+  }, [meLoaded, user, me]);
+
+  // console.log(user)
+  // console.log(me)
 
   function nextImage() {
     setImageIndex(index => {
@@ -53,7 +70,7 @@ const MyPubli = () => {
       return index - 1
     })
   }
-  
+
   function handleChange(e) {
     setTextComment({ ...textComment, [e.target.name]: e.target.value })
   }
@@ -100,8 +117,8 @@ const MyPubli = () => {
           ))}
         </div>
         <div className={styles.actions}>
-          <button onClick={funcDeletePublication}>Excluir</button>
-          <Link to='/dashboard'>Voltar</Link>
+          {/* <button className={styles.redBtn} onClick={funcDeletePublication}>Excluir</button> */}
+          <Link to='/'>Home</Link>
         </div>
       </div>
       <div className={styles.commentsContainer}>

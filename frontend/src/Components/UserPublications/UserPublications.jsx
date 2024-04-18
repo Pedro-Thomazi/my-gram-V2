@@ -1,8 +1,18 @@
+import { useContext, useState } from 'react';
 import styles from './UserPublications.module.scss'
 import { FaHeart, FaRegComment, FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { Context } from '../../Context/UserContext';
 
-const UserPublications = ({ configs }) => {
+const UserPublications = ({ myPubli, configs }) => {
+  const [token] = useState(localStorage.getItem('token') || '')
+  const { deletePublication } = useContext(Context)
+
+
+  function funcDeletePublication(id, token) {
+    deletePublication(id, token)
+  }
+
   return (
     <div className={styles.myPublicationsContainer}>
       {configs.map((publi, index) => (
@@ -22,6 +32,7 @@ const UserPublications = ({ configs }) => {
               </div>
             </div>
           </Link>
+          {myPubli === true && <button className={styles.redBtn} onClick={() => funcDeletePublication(publi._id, token)}>Excluir</button>}
         </div>
       ))}
     </div>

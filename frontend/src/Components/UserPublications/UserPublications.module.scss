@@ -147,6 +147,22 @@
       color: #444;
     }
 
+    .redBtn {
+      font-size: 1rem;
+      padding: 5px;
+      text-align: center;
+      background-color: #c51a1a;
+      color: #fff;
+      border: 1px solid #c51a1a;
+      transition: .5s;
+
+      &:hover {
+        background-color: transparent;
+        color: #c51a1a;
+        border-radius: 5px;
+      }
+    }
+
 
   }
 }
