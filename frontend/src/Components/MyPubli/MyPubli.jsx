@@ -107,7 +107,7 @@ const MyPubli = () => {
       <div className={styles.commentsContainer}>
         <div className={styles.myName}>
           <img src={`http://localhost:5050/images/users/${user.image}`} alt={user.name} />
-          <p>{user.name}</p>
+          <p>{user.name} <br /> <span>{publication.localization}</span></p>
         </div>
         <div className={styles.comments}>
           {publication.description && (
