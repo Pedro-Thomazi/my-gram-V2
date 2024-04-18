@@ -1,0 +1,43 @@
+.container {
+  h2 {
+    text-align: center;
+    margin: 25px 0;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  .containerUsers {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    gap: 20px;
+    height: 400px;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      border: 1px solid transparent;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: #333;
+      border-radius: 5px;
+    }
+
+    .containerUser {
+      display: flex;
+
+      span {
+        margin-left: 10px;
+        color: #fff;
+      }
+
+      img {
+        display: block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.containerConfigsPubli {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: #222;
+  right: 0px;
+  top: 40px;
+  width: 250px;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+
+  a,
+  button {
+    text-align: center;
+    background-color: transparent;
+    border: 0;
+    font-size: 1.2rem;
+    padding: 10px;
+    color: #fff;
+
+    &:hover {
+      background-color: #333;
+    }
+  }
+
+  a.colorRed {
+    color: #d12a2a;
+
+    &:hover {
+      background-color: #612828;
+    }
+  }
+}
+
+.containerConfigsPubli.open {
+  opacity: 1;
+  pointer-events: all;
+}

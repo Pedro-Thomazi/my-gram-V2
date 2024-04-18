@@ -1,0 +1,98 @@
+.containerDenouncePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1000px;
+  width: 100%;
+  margin: 10px auto;
+
+  a {
+    margin-bottom: 10px;
+  }
+
+  .content {
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      .description {
+        label {
+          border: none;
+          cursor: auto;
+        }
+      }
+
+      div {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
+
+        textarea,
+        input {
+          outline: none;
+          border: 0;
+          border: 1px solid transparent;
+          background-color: #ff000049;
+          border-radius: 5px;
+          padding: 10px 5px;
+          font-size: 1.2rem;
+
+          &:focus {
+            border-color: #be2a2a;
+          }
+        }
+
+        input {
+          display: none;
+        }
+
+        label {
+          display: flex;
+          justify-content: space-between;
+          cursor: pointer;
+          background-color: transparent;
+          padding: 10px;
+          border-radius: 5px;
+          // border: 1px solid #000;
+        }
+
+        input:checked + label {
+          border-color: #db2f2f;
+          background-color: #db2f2f;
+          color: #fff;
+        }
+
+        textarea {
+          resize: vertical;
+          max-height: 500px;
+        }
+
+        textarea+.label,
+        input:focus+.label,
+        input:valid+.label {
+          top: -10px;
+          left: 0px;
+          color: #888;
+        }
+      }
+
+      #btnDenun {
+        background-color: #be2a2a;
+        border-color: #be2a2a;
+
+        &:hover {
+          background-color: transparent;
+          color: #be2a2a;
+        }
+      }
+    }
+  }
+}

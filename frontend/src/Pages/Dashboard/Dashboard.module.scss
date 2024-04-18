@@ -1,0 +1,268 @@
+.dashboardContainer {
+  width: 77%;
+  padding: 60px;
+
+  .myFollowsContainer {
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #0000008c;
+    z-index: 100;
+
+    div {
+      position: relative;
+      max-width: 350px;
+      width: 100%;
+      background-color: #111;
+
+      button {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        border: 0;
+        background-color: transparent;
+        color: #fff;
+      }
+    }
+  }
+
+  .myFollowsContainer.openFollow {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .headerDashboard {
+    display: flex;
+    border-bottom: 1px solid #222;
+    padding-bottom: 50px;
+    // background-color: red;
+
+    .photoUser {
+      display: flex;
+      justify-content: center;
+      width: 40%;
+      // background-color: green;
+
+      img {
+        display: block;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 4px solid #1f9c1f;
+        object-fit: cover;
+      }
+    }
+
+    .configsUser {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 60%;
+      padding-top: 20px;
+      // background-color: red;
+
+      .editDashboard {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        a {
+          background-color: #222;
+          color: #fff;
+          padding: 10px 15px;
+          border-radius: 5px;
+        }
+
+        button {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: #c22626;
+          border: 0;
+          background-color: transparent;
+          font-size: 1.4rem;
+        }
+      }
+
+      .follws {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        p {
+          cursor: pointer;
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+
+      .description {
+        width: 50%;
+
+        p {
+          word-wrap: break-word;
+          white-space: pre-wrap;
+        }
+      }
+    }
+  }
+
+  #linkBackHome {
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    width: 65px;
+    height: 65px;
+    line-height: 68px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    transition: .5s;
+    z-index: 10;
+
+    &:hover {
+      color: #222;
+      border-color: #222;
+      background-color: transparent;
+    }
+  }
+
+
+}
+
+
+@media (max-width: 870px) {
+  .dashboardContainer {
+    .headerDashboard {
+      .photoUser {
+        img {
+          width: 150px;
+          height: 150px;
+        }
+      }
+    }
+  }
+}
+
+// @media (max-width: 700px) {
+//   .dashboardContainer {
+//     .headerDashboard {
+//       .configsUser {
+//         .editDashboard {
+//           .btnLogout {
+//             display: none;
+//           }
+//         }
+
+//         .follws {
+//           display: flex;
+//           align-items: center;
+//           gap: 20px;
+
+//           p {
+//             text-align: center;
+//           }
+//         }
+
+//         .description {
+//           width: 100%;
+//         }
+//       }
+//     }
+
+//     #linkBackHome {
+//       display: none;
+//     }
+//   }
+// }
+
+// @media (max-width: 686px) {
+//   .dashboardContainer {
+//     .headerDashboard {
+//       .configsUser {
+//         .editDashboard {
+//           button {
+//             position: relative;
+
+//             svg {
+//               font-size: 2.3rem;
+//             }
+
+//             p {
+//               opacity: 0;
+//               position: absolute;
+//               background-color: #222;
+//               left: 0px;
+//               top: 0px;
+//               border-radius: 5px;
+//               padding: 3px 20px;
+//               z-index: 10;
+//               transition: .5s;
+//             }
+
+//             &:hover p {
+//               opacity: 1;
+//               left: 10px;
+//               top: -32px;
+//             }
+//           }
+//         }
+
+//       }
+//     }
+//   }
+// }
+
+
+@media (max-width: 700px) {
+  .dashboardContainer {
+    width: 100%;
+    padding: 60px 10px;
+
+    .headerDashboard {
+      position: relative;
+
+      .photoUser {
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+
+      .configsUser {
+        .editDashboard {
+          flex-wrap: wrap;
+        }
+
+        .follws {
+          position: absolute;
+          bottom: 5px;
+          left: 50%;
+          transform: translate(-50%, 0%);
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          p {
+            span {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}

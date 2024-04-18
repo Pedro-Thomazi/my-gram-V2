@@ -1,0 +1,144 @@
+#navbar {
+  position: fixed;
+  height: 100vh;
+  width: 300px;
+  top: 0px;
+  right: 0px;
+  padding-top: 10px;
+  background-color: #fff;
+  border-left: 1px solid #ccc;
+
+  .title {
+    p {
+      color: #000;
+      margin-left: 20px;
+    }
+  }
+
+  .links {
+    width: 100%;
+    height: 100vh;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      width: 350px;
+      height: 100vh;
+      padding-top: 50px;
+
+      li {
+        // width: 100%;
+
+        .userImg {
+          display: block;
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+
+        button,
+        a {
+          position: relative;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 10px;
+          font-size: 1.8rem;
+          color: #000;
+          font-weight: 300;
+
+          span {
+            position: absolute;
+            top: 0;
+            left: 2px;
+            display: block;
+            text-align: center;
+            font-size: 1rem;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: red;
+            color: #fff;
+          }
+
+          &:hover {
+            background-color: #333;
+            color: #fff;
+          }
+        }
+
+        button.logout {
+          cursor: pointer;
+          width: 100%;
+          background-color: transparent;
+          border: 0;
+          color: #b32626;
+          transition: .5s;
+
+          &:hover {
+            background-color: #b32626;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: 1120px) {
+  #navbar {
+    width: 240px;
+  }
+}
+
+@media (max-width: 1000px) {
+  #navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+
+    .title {
+      margin: 0;
+
+      img {
+        display: block;
+        width: 50px;
+      }
+
+      p {
+        display: none;
+      }
+    }
+
+    .links {
+      ul {
+        width: 100%;
+        align-items: center;
+
+        li {
+          p {
+            display: none;
+          }
+
+          button,
+          a {
+            &:hover {
+              background-color: transparent;
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  #navbar {
+    display: none;
+  }
+}

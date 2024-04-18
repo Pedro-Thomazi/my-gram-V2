@@ -1,0 +1,63 @@
+.commentsCard {
+  position: relative;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0000003b;
+}
+
+.commentsCard.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+
+.btns {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  z-index: 100;
+
+  button {
+    border: 0;
+    background-color: #777;
+    border-radius: 50%;
+    transition: .5s;
+
+    svg {
+      color: #eee;
+      transition: .5s;
+    }
+
+    &:hover svg {
+      color: #333;
+    }
+  }
+}
+
+.dots {
+  position: absolute;
+  bottom: 10px;
+  z-index: 100;
+
+  button {
+    border: 0;
+    background-color: transparent;
+
+    svg {
+      color: #aaa;
+    }
+  }
+}

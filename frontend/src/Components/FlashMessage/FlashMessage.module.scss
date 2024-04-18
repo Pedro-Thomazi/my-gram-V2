@@ -1,0 +1,40 @@
+.message {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  background-color: transparent;
+  color: #000;
+  width: 300px;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  z-index: 1000;
+
+  span {
+    display: block;
+    height: 2px;
+    border-radius: 10px;
+    background-color: #fff;
+    margin-top: 1.2rem;
+    transition: 5s;
+  }
+}
+
+.message.success {
+  background-color: #34c734;
+
+  span {
+    width: 0%;
+    width: 100%;
+  }
+}
+
+.message.error {
+  background-color: #c73434;
+  color: #fff;
+
+  span {
+    width: 0%;
+    width: 100%;
+  }
+}
