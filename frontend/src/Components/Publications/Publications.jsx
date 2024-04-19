@@ -9,6 +9,7 @@ import axios from 'axios';
 import ConfigsPubli from '../ConfigsPubli/ConfigsPubli';
 import CardComments from '../CardComments/CardComments';
 import { Context } from '../../Context/UserContext';
+import Like from '../Like/Like';
 
 
 const Publications = ({ idPubli, index, userId, userName, userPhoto, localization, images, likes, description, comments }) => {
@@ -41,15 +42,15 @@ const Publications = ({ idPubli, index, userId, userName, userPhoto, localizatio
     }).then((res) => {
       setPublication(res.data)
     }).then(() => {
-      setMyLikeInPubli(publication.publication.likes)
+      // setMyLikeInPubli(publication.publication.likes)
     })
   }, [token])
 
-  console.log(publication.publication)
+  // console.log(publication.publication)
 
-  function addLike() {
-    likeInPublication(idPubli, token)
-  }
+  // function addLike() {
+  //   likeInPublication(idPubli, token)
+  // }
 
   function nextImage() {
     setImageIndex(index => {
@@ -143,13 +144,7 @@ const Publications = ({ idPubli, index, userId, userName, userPhoto, localizatio
         ))}
       </div>
       <div className={styles.likeComment}>
-        <button onClick={addLike}>
-          {liked ? (
-            <FaHeart size={25} color='red' />
-          ) : (
-            <FaRegHeart size={25} />
-          )}
-        </button>
+        <Like idPubli={idPubli} token={token} likes={likes} />
         <button onChange={funcOpenComments}>
           <FaRegComment size={25} />
         </button>

@@ -205,7 +205,8 @@ module.exports = class PublicationsController {
     const user = await getUserByToken(token)
 
     const publication = await Publications.find({_id: id, "likes._id": user._id.toString() })
-    console.log(publication)
+    // const ownerPubli = await Publications.find({_id: id })
+    // console.log(ownerPubli)
     
     const dataLike = {
       _id: user.id
