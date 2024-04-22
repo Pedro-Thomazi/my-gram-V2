@@ -67,8 +67,8 @@ const UpdateUser = () => {
             <label className={styles.label}>Foto de Perfil</label>
           </div>
           <div>
-            {/* <input onChange={handleChange} type="checkbox" name="darkMode" id="darkMode" /> */}
-            <label className={styles.label}>Modo Escuro</label>
+            {/* <input onChange={handleChange} type="checkbox" name="darkMode" id="darkMode" />
+            <label htmlFor='darkMode' className={styles.inputLabel}>Modo Escuro</label> */}
             {/* <select onChange={handleChange} name="mode" id="mode" value={user.darkMode || ''}>
               <option value="whiteMode">Modo Claro</option>
               <option value="darkMode">Modo Escuro</option>

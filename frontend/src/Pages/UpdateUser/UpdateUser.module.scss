@@ -86,6 +86,21 @@
           left: 0px;
           color: #888;
         }
+
+        input[type="checkbox"] {
+          display: none;
+        }
+
+        .inputLabel {
+          width: 100%;
+          padding: 15px 5px;
+          border-radius: 5px;
+          border: 1px solid #0084ff;
+        }
+
+        input[type="checkbox"]:checked + .inputLabel {
+          background-color: #0084ff;
+        }
       }
     }
   }

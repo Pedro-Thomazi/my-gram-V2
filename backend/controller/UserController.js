@@ -176,7 +176,13 @@ module.exports = class UserController {
     user.email = email
 
     user.description = description
-    user.darkMode = false
+
+    if (darkMode == 'on') {
+      user.darkMode = true
+    }
+    else {
+      user.darkMode = false
+    }
 
 
 
